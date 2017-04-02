@@ -8,52 +8,82 @@
 
 */
 
-// 1. Make the function getRollNumber return
+
+// Pro Tip: want to know if your function is working? call it inside console.log()!
+
+// 1. Make the function randomDiceNumber return
 // a random number from 1-6
-function getRollNumber() {
+function randomDiceNumber() {
     // Generate random number here
     // Hint: You'll need to use Math.random and Math.floor
     return Math.floor((Math.random() *6) + 1);
 }
 
-function showVictory(message) {
-    // Step 4. Write message to the page
-    $('.victory').html('You win! '+message);
-}
-
-
+// 2. Update the function rollDice:
+    //      a) use randomDiceNumber to get new values for the dice
+    //      b) use jQuery to put those dice numbers on the webpage
+    //      c) check for the outcome
+    //      d) display a victory or loss on the webpage
 function rollDice(){
-    // 2. Update the function rollDice to:
-    //      a) use getRollNumber to get new values for the dice
-    //      b) use jQuery to write the new values to the dice
-    var next1 = getRollNumber();
-    var next2 = getRollNumber();
-    $('#first-die').html(next1);
-    $('#second-die').html(next2);
-
-    // 4. Add victory conditions (See instructions at top of the JS)
-    // If one of the following victory condition is met
-    // display a message in the page stating why you won!
-    //     a. Each die has the same number (aka "doubles")
-    //     b. The sum of the two dies is 7
-    //     c. The sum of the two dies is 11
-    if (next1 === next2) {
-        showVictory('Numbers match.');
-    }
-
-    if (next1 + next2 === 7) {
-        showVictory('You got 7.');
-    }
-
-    if (next1 + next2 === 11) {
-        showVictory('You got 11.');
-    }
+    //      a) use randomDiceNumber to get new values for the dice
+    //         hint: save them in variables
+      var dice1 = randomDiceNumber();
+      var dice2 = randomDiceNumber();
+    //      b) use jQuery to put those dice numbers on the webpage
+      $('#first-die').html(dice1);
+      $('#second-die').html(dice2);
+    //      c) check the outcome to see if the dice match and
+    //          save it in a variable called 'outcome'
+      if (dice1 === dice2) {
+        var outcome = "Numbers match. You win!";
+      } else {
+        var outcome = "Numbers don't match. You lose."
+      }
+    //  d) display a victory or loss on the webpage
+    //     1. write a function showOutcome below (step3)
+    //     2. call it here with the variable outcome
+      showOutcome(outcome);
 }
+
+// Step 3. Write a function showOutcome to put the message
+//  on the page
+function showOutcome(message) {
+  $('.outcome').html('You win! '+message);
+}
+
 
 $(document).ready(function(){
-  // 3. Add a click handler to the roll button
+  // 4. Add a click handler to the roll button
   // So that new numbers appear on the dice
   // when the button is clicked.
   // Hint: Use the rollDice function
     $('input').click(rollDice);
 });
+
+
+// BONUS!!!
+
+// "Refactor" aka edit/improve your code:
+
+// 1. Add more victory conditions:
+// If one of the following victory condition is met
+// display a message in the page stating why you won!
+//     a. Each die has the same number (aka "doubles")
+//     b. The sum of the two dies is 7
+//     c. The sum of the two dies is 11
+// 2. Create a new function that checks the two dice numbers
+//     a. call it checkForVictory
+//     b. have it take 2 parameters, dice1, and dice2
+//     c. use it to return a string of the outcome message
+//        from bonus step 1
+function checkForVictory(dice1, dice2){
+   if (dice1 === dice2) {
+    return "Numbers match. You win!";
+  } elsif (dice1 + dice2 === 7) {
+    return "Numbers don't match. You lose.";
+  } elsif (dice1 + dice2 === 11) {
+    return 'You got 11.';
+  } else {
+    return 'Not a winner'
+  }
+}
