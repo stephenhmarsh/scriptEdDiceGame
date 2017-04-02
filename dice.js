@@ -34,15 +34,15 @@ function rollDice(){
       $('#second-die').html(next2);
     //      c) check for the outcome
       if (next1 === next2) {
-        showVictory('Numbers match.');
+        showOutcome('Numbers match.');
       }
 
       if (next1 + next2 === 7) {
-        showVictory('You got 7.');
+        showOutcome('You got 7.');
       }
 
       if (next1 + next2 === 11) {
-        showVictory('You got 11.');
+        showOutcome('You got 11.');
       }
 
     //      d) display a victory or loss on the webpage
@@ -63,8 +63,8 @@ $(document).ready(function(){
     $('input').click(rollDice);
 });
 
-function showVictory(message) {
+function showOutcome(message) {
     // Step 4. Write message to the page
-    $('.victory').html('You win! '+message);
+    $('.outcome').html('You win! '+message);
 }
 
