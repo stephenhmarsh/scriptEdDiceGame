@@ -16,12 +16,6 @@ function randomDiceNumber() {
     return Math.floor((Math.random() *6) + 1);
 }
 
-function showVictory(message) {
-    // Step 4. Write message to the page
-    $('.victory').html('You win! '+message);
-}
-
-
 function rollDice(){
     // 2. Update the function rollDice to:
     //      a) use randomDiceNumber to get new values for the dice
@@ -57,3 +51,9 @@ $(document).ready(function(){
   // Hint: Use the rollDice function
     $('input').click(rollDice);
 });
+
+function showVictory(message) {
+    // Step 4. Write message to the page
+    $('.victory').html('You win! '+message);
+}
+
