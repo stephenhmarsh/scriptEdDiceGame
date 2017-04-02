@@ -27,13 +27,13 @@ function randomDiceNumber() {
 function rollDice(){
     //      a) use randomDiceNumber to get new values for the dice
     //         hint: save them in variables
-      var next1 = randomDiceNumber();
-      var next2 = randomDiceNumber();
+      var dice1 = randomDiceNumber();
+      var dice2 = randomDiceNumber();
     //      b) use jQuery to put those dice numbers on the webpage
-      $('#first-die').html(next1);
-      $('#second-die').html(next2);
+      $('#first-die').html(dice1);
+      $('#second-die').html(dice2);
     //      c) check the outcome to see if the dice match
-      if (next1 === next2) {
+      if (dice1 === dice2) {
         showOutcome("Numbers match. You win!");
       } else {
         showOutcome("Numbers don't match. You lose.")
