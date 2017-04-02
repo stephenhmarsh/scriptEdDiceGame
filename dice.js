@@ -32,29 +32,33 @@ function rollDice(){
     //      b) use jQuery to put those dice numbers on the webpage
       $('#first-die').html(dice1);
       $('#second-die').html(dice2);
-    //      c) check the outcome to see if the dice match
+    //      c) check the outcome to see if the dice match and
+    //          save it in a variable called 'outcome'
       if (dice1 === dice2) {
-        showOutcome("Numbers match. You win!");
+        var outcome = "Numbers match. You win!";
       } else {
-        showOutcome("Numbers don't match. You lose.")
+        var outcome = "Numbers don't match. You lose."
       }
-    //      d) display a victory or loss on the webpage
-    // 4. Add victory conditions (See instructions at top of the JS
-
+    //  d) display a victory or loss on the webpage
+    //     1. write a function showOutcome below (step3)
+    //     2. call it here with the variable outcome
+      showOutcome(outcome);
 }
 
+// Step 3. Write a function showOutcome to put the message
+//  on the page
+function showOutcome(message) {
+  $('.outcome').html('You win! '+message);
+}
+
+
 $(document).ready(function(){
-  // 3. Add a click handler to the roll button
+  // 4. Add a click handler to the roll button
   // So that new numbers appear on the dice
   // when the button is clicked.
   // Hint: Use the rollDice function
     $('input').click(rollDice);
 });
-
-function showOutcome(message) {
-    // Step 4. Write message to the page
-    $('.outcome').html('You win! '+message);
-}
 
 
 // BONUS!!!
