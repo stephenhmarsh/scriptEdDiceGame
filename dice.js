@@ -8,9 +8,9 @@
 
 */
 
-// 1. Make the function getRollNumber return
+// 1. Make the function randomDiceNumber return
 // a random number from 1-6
-function getRollNumber() {
+function randomDiceNumber() {
     // Generate random number here
     // Hint: You'll need to use Math.random and Math.floor
     return Math.floor((Math.random() *6) + 1);
@@ -24,10 +24,10 @@ function showVictory(message) {
 
 function rollDice(){
     // 2. Update the function rollDice to:
-    //      a) use getRollNumber to get new values for the dice
+    //      a) use randomDiceNumber to get new values for the dice
     //      b) use jQuery to write the new values to the dice
-    var next1 = getRollNumber();
-    var next2 = getRollNumber();
+    var next1 = randomDiceNumber();
+    var next2 = randomDiceNumber();
     $('#first-die').html(next1);
     $('#second-die').html(next2);
 
