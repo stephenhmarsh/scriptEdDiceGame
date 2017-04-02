@@ -16,15 +16,20 @@ function randomDiceNumber() {
     return Math.floor((Math.random() *6) + 1);
 }
 
-function rollDice(){
-    // 2. Update the function rollDice to:
+
+// 2. Update the function rollDice to:
     //      a) use randomDiceNumber to get new values for the dice
-    //      b) use jQuery to write the new values to the dice
+    //      b) use jQuery to put those dice numbers on the webpage
+    //      c) check for the outcome
+    //      d) display a victory or loss on the webpage
+function rollDice(){
+    // a) use randomDiceNumber to get new values for the dice
     var next1 = randomDiceNumber();
     var next2 = randomDiceNumber();
     $('#first-die').html(next1);
     $('#second-die').html(next2);
 
+    //      b) use jQuery to put those dice numbers on the webpage
     // 4. Add victory conditions (See instructions at top of the JS)
     // If one of the following victory condition is met
     // display a message in the page stating why you won!
