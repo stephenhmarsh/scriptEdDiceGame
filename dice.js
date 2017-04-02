@@ -32,26 +32,14 @@ function rollDice(){
     //      b) use jQuery to put those dice numbers on the webpage
       $('#first-die').html(next1);
       $('#second-die').html(next2);
-    //      c) check for the outcome
+    //      c) check the outcome to see if the dice match
       if (next1 === next2) {
-        showOutcome('Numbers match.');
+        showOutcome("Numbers match. You win!");
+      } else {
+        showOutcome("Numbers don't match. You lose.")
       }
-
-      if (next1 + next2 === 7) {
-        showOutcome('You got 7.');
-      }
-
-      if (next1 + next2 === 11) {
-        showOutcome('You got 11.');
-      }
-
     //      d) display a victory or loss on the webpage
-    // 4. Add victory conditions (See instructions at top of the JS)
-    // If one of the following victory condition is met
-    // display a message in the page stating why you won!
-    //     a. Each die has the same number (aka "doubles")
-    //     b. The sum of the two dies is 7
-    //     c. The sum of the two dies is 11
+    // 4. Add victory conditions (See instructions at top of the JS
 
 }
 
@@ -68,3 +56,30 @@ function showOutcome(message) {
     $('.outcome').html('You win! '+message);
 }
 
+
+// BONUS!!!
+
+// "Refactor" aka edit/improve your code:
+
+// 1. Add more victory conditions:
+// If one of the following victory condition is met
+// display a message in the page stating why you won!
+//     a. Each die has the same number (aka "doubles")
+//     b. The sum of the two dies is 7
+//     c. The sum of the two dies is 11
+// 2. Create a new function that checks the two dice numbers
+//     a. call it checkForVictory
+//     b. have it take 2 parameters, dice1, and dice2
+//     c. use it to return a string of the outcome message
+//        from bonus step 1
+function checkForVictory(dice1, dice2){
+   if (dice1 === dice2) {
+    return "Numbers match. You win!";
+  } elsif (dice1 + dice2 === 7) {
+    return "Numbers don't match. You lose.";
+  } elsif (dice1 + dice2 === 11) {
+    return 'You got 11.';
+  } else {
+    return 'Not a winner'
+  }
+}
