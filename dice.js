@@ -8,6 +8,9 @@
 
 */
 
+
+// Pro Tip: want to know if your function is working? call it inside console.log()!
+
 // 1. Make the function randomDiceNumber return
 // a random number from 1-6
 function randomDiceNumber() {
@@ -16,14 +19,16 @@ function randomDiceNumber() {
     return Math.floor((Math.random() *6) + 1);
 }
 
-
-// 2. Update the function rollDice to:
+// 2. Update the function rollDice:
     //      a) use randomDiceNumber to get new values for the dice
     //      b) use jQuery to put those dice numbers on the webpage
     //      c) check for the outcome
     //      d) display a victory or loss on the webpage
 function rollDice(){
-    // a) use randomDiceNumber to get new values for the dice
+    //      a) use randomDiceNumber to get new values for the dice
+    //      b) use jQuery to put those dice numbers on the webpage
+    //      c) check for the outcome
+    //      d) display a victory or loss on the webpage
     var next1 = randomDiceNumber();
     var next2 = randomDiceNumber();
     $('#first-die').html(next1);
